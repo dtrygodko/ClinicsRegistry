@@ -49,3 +49,15 @@ D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\ru\System.Web.WebP
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\obj\Debug\ClinicsRegistry.csprojResolveAssemblyReference.cache
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\obj\Debug\ClinicsRegistry.dll
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\obj\Debug\ClinicsRegistry.pdb
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.dll
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.Mvc.dll
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\WebActivatorEx.dll
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.ServiceLocation.xml
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.xml
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.Mvc.xml
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
