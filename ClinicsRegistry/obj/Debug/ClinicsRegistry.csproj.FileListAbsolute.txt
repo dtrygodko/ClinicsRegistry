@@ -61,3 +61,8 @@ D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practice
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.Configuration.xml
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.Mvc.xml
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\obj\Debug\ClinicsRegistry.Migrations.ChangeType.resources
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\obj\Debug\ClinicsRegistry.csproj.GenerateResource.Cache
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\roslyn\JTB0182.model
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\roslyn\JTB0182.primitives.3ac3a958.killme
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\roslyn\JTB0182.visual

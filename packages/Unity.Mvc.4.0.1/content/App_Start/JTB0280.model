@@ -1,0 +1,18 @@
+<JTB0280.model>
+	<castsShadow>	false	</castsShadow>
+	<metaData>
+		<created_by>	a_ivanow	</created_by>
+		<created_on>	1352379397	</created_on>
+		<modified_by>	a_ivanof	</modified_by>
+		<modified_on>	1437660670	</modified_on>
+	</metaData>
+	<extent>	2.89	</extent>
+	<parent>	content/gameplay/japan/technical/battleship/JTB0280/lods/JTB0280_lod1	</parent>
+	<materialNames />
+	<visibilityBox>
+		<min>	-0.014948 0.000159 -0.012082	</min>
+		<max>	0.014997 0.043012 0.008586	</max>
+	</visibilityBox>
+	<exporter>	1.6	</exporter>
+	<nodefullVisual>	content/gameplay/japan/technical/battleship/JTB0280/JTB0280	</nodefullVisual>
+</JTB0280.model>

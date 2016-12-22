@@ -1,0 +1,18 @@
+<JTB0147.model>
+	<metaData>
+		<created_by>	a_zotikov	</created_by>
+		<created_on>	1387269565	</created_on>
+		<modified_by>	a_gruzdev	</modified_by>
+		<modified_on>	1437400438	</modified_on>
+	</metaData>
+	<extent>	3.52	</extent>
+	<parent>	content/gameplay/japan/technical/battleship/JTB0147/lods/JTB0147_lod1	</parent>
+	<materialNames />
+	<visibilityBox>
+		<min>	-0.045067 -0.000000 -0.033445	</min>
+		<max>	0.045067 0.112773 0.033443	</max>
+	</visibilityBox>
+	<castsShadow>	false	</castsShadow>
+	<exporter>	1.6	</exporter>
+	<nodefullVisual>	content/gameplay/japan/technical/battleship/JTB0147/JTB0147	</nodefullVisual>
+</JTB0147.model>

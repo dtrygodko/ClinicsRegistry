@@ -1,0 +1,29 @@
+<root>
+	<boundingBox>
+		<min>	-0.213649 0.000403 -0.394652	</min>
+		<max>	0.396909 0.030090 0.352337	</max>
+	</boundingBox>
+	<node>
+		<identifier>	Scene Root	</identifier>
+		<transform>
+			<row0>	1.000000 0.000000 0.000000	</row0>
+			<row1>	0.000000 1.000000 0.000000	</row1>
+			<row2>	0.000000 0.000000 1.000000	</row2>
+			<row3>	0.000000 0.000000 0.000000	</row3>
+		</transform>
+	</node>
+	<renderSet>
+		<treatAsWorldSpaceObject>	false	</treatAsWorldSpaceObject>
+		<node>	Scene Root	</node>
+		<geometry>
+			<vertices>	JM062_Deck_Hatch_Shape11.vertices	</vertices>
+			<primitive>	JM062_Deck_Hatch_Shape11.indices	</primitive>
+			<primitiveGroup>	0
+				<material>
+					<identifier>	SHIPMAT_PBS_misc	</identifier>
+					<mfm>	content/gameplay/japan/misc/textures/JM062_Deck_Hatch_11.mfm	</mfm>
+				</material>
+			</primitiveGroup>
+		</geometry>
+	</renderSet>
+</root>

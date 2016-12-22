@@ -1,0 +1,29 @@
+<root>
+	<boundingBox>
+		<min>	-0.206738 0.000000 -0.011110	</min>
+		<max>	0.206738 0.051758 0.011110	</max>
+	</boundingBox>
+	<node>
+		<identifier>	Scene Root	</identifier>
+		<transform>
+			<row0>	1.000000 0.000000 0.000000	</row0>
+			<row1>	0.000000 1.000000 0.000000	</row1>
+			<row2>	0.000000 0.000000 1.000000	</row2>
+			<row3>	0.000000 0.000000 0.000000	</row3>
+		</transform>
+	</node>
+	<renderSet>
+		<treatAsWorldSpaceObject>	false	</treatAsWorldSpaceObject>
+		<node>	Scene Root	</node>
+		<geometry>
+			<vertices>	DayLight_lod1Shape.vertices	</vertices>
+			<primitive>	DayLight_lod1Shape.indices	</primitive>
+			<primitiveGroup>	0
+				<material>
+					<identifier>	SHIPMAT_PBS_misc	</identifier>
+					<mfm>	content/gameplay/japan/misc/textures/JM009_Signal_Lamp.mfm	</mfm>
+				</material>
+			</primitiveGroup>
+		</geometry>
+	</renderSet>
+</root>

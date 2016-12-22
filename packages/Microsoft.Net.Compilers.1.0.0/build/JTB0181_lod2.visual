@@ -1,0 +1,29 @@
+<root>
+	<boundingBox>
+		<min>	-0.315574 -0.590696 -0.439441	</min>
+		<max>	0.308781 1.238679 0.373792	</max>
+	</boundingBox>
+	<node>
+		<identifier>	Scene Root	</identifier>
+		<transform>
+			<row0>	1.000000 0.000000 0.000000	</row0>
+			<row1>	0.000000 1.000000 0.000000	</row1>
+			<row2>	0.000000 0.000000 1.000000	</row2>
+			<row3>	0.000000 0.000000 0.000000	</row3>
+		</transform>
+	</node>
+	<renderSet>
+		<treatAsWorldSpaceObject>	false	</treatAsWorldSpaceObject>
+		<node>	Scene Root	</node>
+		<geometry>
+			<vertices>	JM166_Voice_Tube_lod2Shape.vertices	</vertices>
+			<primitive>	JM166_Voice_Tube_lod2Shape.indices	</primitive>
+			<primitiveGroup>	0
+				<material>
+					<identifier>	SHIPMAT_PBS_misc	</identifier>
+					<mfm>	content/gameplay/japan/misc/textures/JM164_Turning_Indicator.mfm	</mfm>
+				</material>
+			</primitiveGroup>
+		</geometry>
+	</renderSet>
+</root>

@@ -10,6 +10,14 @@ namespace ClinicsRegistry.Models
         public Guid Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public virtual ClientCard Client { get; set; }
+        public virtual Guid ClientId { get; set; }
+    }
+
+    public class ScheduleItemViewModel
+    {
+        public Guid Id { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public string Patient { get; set; }
     }
 }

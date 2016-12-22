@@ -19,7 +19,8 @@ namespace ClinicsRegistry.Controllers
         // GET: Cards
         public ActionResult Index()
         {
-            return View();
+            return View(from c in _context.Cards
+                        select c);
         }
 
         // GET: Cards/Details/5
@@ -36,25 +37,17 @@ namespace ClinicsRegistry.Controllers
 
         // POST: Cards/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ClientCard card)
         {
             try
             {
-                ClientCard card = new ClientCard
-                {
-                    Id = new Guid(),
-                    Name = collection.Get("Name"),
-                    Surname = collection.Get("Surname"),
-                    BirthDate = DateTime.Parse(collection.Get("BirthDate")),
-                    IsEmployee = bool.Parse(collection.Get("IsEmployee"))
-                };
-
+                card.Id = Guid.NewGuid();
                 _context.Cards.Add(card);
                 _context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch (Exception e)
             {
                 return View();
             }

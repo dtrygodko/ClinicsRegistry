@@ -1,0 +1,18 @@
+<JTB0186_lod1.model>
+	<castsShadow>	false	</castsShadow>
+	<metaData>
+		<created_by>	a_ivanof	</created_by>
+		<created_on>	1335447878	</created_on>
+		<modified_by>	a_ivanof	</modified_by>
+		<modified_on>	1422284134	</modified_on>
+	</metaData>
+	<extent>	5.69	</extent>
+	<materialNames />
+	<visibilityBox>
+		<min>	-0.016689 -0.000392 -0.016575	</min>
+		<max>	0.016610 0.012467 0.016596	</max>
+	</visibilityBox>
+	<exporter>	1.6	</exporter>
+	<parent>	content/gameplay/japan/technical/battleship/JTB0186/lods/JTB0186_lod2	</parent>
+	<nodefullVisual>	content/gameplay/japan/technical/battleship/JTB0186/lods/JTB0186_lod1	</nodefullVisual>
+</JTB0186_lod1.model>

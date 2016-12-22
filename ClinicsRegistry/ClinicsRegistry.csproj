@@ -160,6 +160,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612172157171_ChangeType.cs" />
+    <Compile Include="Migrations\201612172157171_ChangeType.Designer.cs">
+      <DependentUpon>201612172157171_ChangeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ClientCard.cs" />
     <Compile Include="Models\RegistryDBContext.cs" />
     <Compile Include="Models\ScheduleItem.cs" />
@@ -211,15 +216,21 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cards\Index.cshtml" />
     <Content Include="Views\Cards\Create.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Schedule\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Schedule\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201612172157171_ChangeType.resx">
+      <DependentUpon>201612172157171_ChangeType.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

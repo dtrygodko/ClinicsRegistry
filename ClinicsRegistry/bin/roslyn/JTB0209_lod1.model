@@ -1,0 +1,12 @@
+<JTB0209_lod1.model>
+	<metaData>
+		<created_by>	a_gruzdev	</created_by>
+		<created_on>	1389767480	</created_on>
+		<modified_by>	a_ivanof	</modified_by>
+		<modified_on>	1422284141	</modified_on>
+	</metaData>
+	<extent>	7.14	</extent>
+	<parent>	content/gameplay/japan/technical/battleship/JTB0209/lods/JTB0209_lod2	</parent>
+	<exporter>	1.6	</exporter>
+	<nodefullVisual>	content/gameplay/japan/technical/battleship/JTB0209/lods/JTB0209_lod1	</nodefullVisual>
+</JTB0209_lod1.model>

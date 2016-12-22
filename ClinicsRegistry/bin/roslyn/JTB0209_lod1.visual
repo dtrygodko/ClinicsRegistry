@@ -1,0 +1,27 @@
+function pdetool_showtrilbl(flag)
+% case: display mesh triangle labels
+
+%   Copyright 1994-2013 The MathWorks, Inc.
+
+    pde_fig=findobj(allchild(0),'flat','Tag','PDETool');
+
+    ax=findobj(allchild(pde_fig),'flat','Tag','PDEAxes');
+    set(pde_fig,'CurrentAxes',ax)
+
+    set(pde_fig,'Pointer','watch')
+    drawnow
+
+    h=getappdata(pde_fig,'trihandles');
+    delete(h)
+
+    if flag,                              % flag is set: display labels
+
+        % get node data for the current mesh
+        h=findobj(get(pde_fig,'Children'),'flat','Tag','PDEMeshMenu');
+        hp=findobj(get(h,'Children'),'flat','Tag','PDEInitMesh');
+        ht=findobj(get(h,'Children'),'flat','Tag','PDEMeshParam');
+        p=get(hp,'UserData'); t=get(ht,'UserData');
+
+        scale=min(diff(get(ax,'Xlim')),diff(get(ax,'Ylim')));
+        ind=t(:,1)'; ind=[ind(1:3), ind(1)];
+        trilength=max(mean(abs

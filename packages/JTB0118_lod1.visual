@@ -1,0 +1,29 @@
+<root>
+	<boundingBox>
+		<min>	-0.499394 -0.002045 -0.079225	</min>
+		<max>	0.499424 0.054029 0.079416	</max>
+	</boundingBox>
+	<node>
+		<identifier>	Scene Root	</identifier>
+		<transform>
+			<row0>	1.000000 0.000000 0.000000	</row0>
+			<row1>	0.000000 1.000000 0.000000	</row1>
+			<row2>	0.000000 0.000000 1.000000	</row2>
+			<row3>	0.000000 0.000000 0.000000	</row3>
+		</transform>
+	</node>
+	<renderSet>
+		<treatAsWorldSpaceObject>	false	</treatAsWorldSpaceObject>
+		<node>	Scene Root	</node>
+		<geometry>
+			<vertices>	Bollards_lod1Shape.vertices	</vertices>
+			<primitive>	Bollards_lod1Shape.indices	</primitive>
+			<primitiveGroup>	0
+				<material>
+					<identifier>	SHIPMAT_PBS_misc	</identifier>
+					<mfm>	content/gameplay/japan/misc/textures/JM026_Bollards.mfm	</mfm>
+				</material>
+			</primitiveGroup>
+		</geometry>
+	</renderSet>
+</root>

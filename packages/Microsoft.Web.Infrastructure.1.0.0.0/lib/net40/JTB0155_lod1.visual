@@ -1,0 +1,29 @@
+<root>
+	<boundingBox>
+		<min>	-0.319903 0.000193 -0.612375	</min>
+		<max>	0.275648 0.369998 0.582629	</max>
+	</boundingBox>
+	<node>
+		<identifier>	Scene Root	</identifier>
+		<transform>
+			<row0>	1.000000 0.000000 0.000000	</row0>
+			<row1>	0.000000 1.000000 0.000000	</row1>
+			<row2>	0.000000 0.000000 1.000000	</row2>
+			<row3>	0.000000 0.000000 0.000000	</row3>
+		</transform>
+	</node>
+	<renderSet>
+		<treatAsWorldSpaceObject>	false	</treatAsWorldSpaceObject>
+		<node>	Scene Root	</node>
+		<geometry>
+			<vertices>	JM042_lodShape1.vertices	</vertices>
+			<primitive>	JM042_lodShape1.indices	</primitive>
+			<primitiveGroup>	0
+				<material>
+					<identifier>	SHIPMAT_PBS_misc	</identifier>
+					<mfm>	content/gameplay/japan/misc/textures/JM042_Motor_Boats_17m.mfm	</mfm>
+				</material>
+			</primitiveGroup>
+		</geometry>
+	</renderSet>
+</root>
