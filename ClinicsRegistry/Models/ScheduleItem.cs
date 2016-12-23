@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ClinicsRegistry.Models
 {
@@ -10,7 +8,8 @@ namespace ClinicsRegistry.Models
         public Guid Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public virtual Guid ClientId { get; set; }
+        public ClientCard Client { get; set; }
+        public Disease Diagnosis { get; set; }
     }
 
     public class ScheduleItemViewModel

@@ -164,10 +164,16 @@
     <Compile Include="Migrations\201612172157171_ChangeType.Designer.cs">
       <DependentUpon>201612172157171_ChangeType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612232058411_NewModels.cs" />
+    <Compile Include="Migrations\201612232058411_NewModels.Designer.cs">
+      <DependentUpon>201612232058411_NewModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ClientCard.cs" />
+    <Compile Include="Models\Disease.cs" />
     <Compile Include="Models\RegistryDBContext.cs" />
     <Compile Include="Models\ScheduleItem.cs" />
+    <Compile Include="Models\Symptom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +224,7 @@
     <Content Include="Views\Cards\Create.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Views\Schedule\Create.cshtml" />
+    <Content Include="Views\Cards\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -230,6 +237,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612172157171_ChangeType.resx">
       <DependentUpon>201612172157171_ChangeType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612232058411_NewModels.resx">
+      <DependentUpon>201612232058411_NewModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

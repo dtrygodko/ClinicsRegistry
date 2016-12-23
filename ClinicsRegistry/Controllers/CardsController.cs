@@ -26,7 +26,7 @@ namespace ClinicsRegistry.Controllers
         // GET: Cards/Details/5
         public ActionResult Details(Guid id)
         {
-            return View();
+            return View(_context.Cards.Where(c => c.Id == id).Single());
         }
 
         // GET: Cards/Create

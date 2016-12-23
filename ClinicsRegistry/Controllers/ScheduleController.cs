@@ -21,7 +21,7 @@ namespace ClinicsRegistry.Controllers
         {
             return View(from i in _context.Visits
                         join c in _context.Cards
-                            on i.ClientId equals c.Id
+                            on i.Client.Id equals c.Id
                         select new ScheduleItemViewModel {
                             Id = i.Id,
                             StartDate = i.StartDate,
