@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ClinicsRegistry.Models;
@@ -9,24 +12,32 @@ namespace ClinicsRegistry.Controllers
 {
     public class CardsController : Controller
     {
-        RegistryDBContext _context;
+        private RegistryDBContext db;
 
         public CardsController(RegistryDBContext context)
         {
-            _context = context;
+            db = context;
         }
 
         // GET: Cards
         public ActionResult Index()
         {
-            return View(from c in _context.Cards
-                        select c);
+            return View(db.Cards.ToList());
         }
 
         // GET: Cards/Details/5
-        public ActionResult Details(Guid id)
+        public ActionResult Details(Guid? id)
         {
-            return View(_context.Cards.Where(c => c.Id == id).Single());
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ClientCard clientCard = db.Cards.Find(id);
+            if (clientCard == null)
+            {
+                return HttpNotFound();
+            }
+            return View(clientCard);
         }
 
         // GET: Cards/Create
@@ -37,48 +48,73 @@ namespace ClinicsRegistry.Controllers
 
         // POST: Cards/Create
         [HttpPost]
-        public ActionResult Create(ClientCard card)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Name,Surname,BirthDate,IsEmployee")] ClientCard clientCard)
         {
-            try
+            if (ModelState.IsValid)
             {
-                card.Id = Guid.NewGuid();
-                _context.Cards.Add(card);
-                _context.SaveChanges();
-
+                clientCard.Id = Guid.NewGuid();
+                db.Cards.Add(clientCard);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch (Exception e)
-            {
-                return View();
-            }
+
+            return View(clientCard);
         }
 
         // GET: Cards/Edit/5
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit(Guid? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ClientCard clientCard = db.Cards.Find(id);
+            if (clientCard == null)
+            {
+                return HttpNotFound();
+            }
+            return View(clientCard);
         }
 
         // POST: Cards/Edit/5
         [HttpPost]
-        public ActionResult Edit(Guid id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Name,Surname,BirthDate,IsEmployee")] ClientCard clientCard)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(clientCard).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(clientCard);
         }
 
         // GET: Cards/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ClientCard clientCard = db.Cards.Find(id);
+            if (clientCard == null)
+            {
+                return HttpNotFound();
+            }
+            return View(clientCard);
+        }
+
+        // POST: Cards/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(Guid id)
+        {
+            ClientCard clientCard = db.Cards.Find(id);
+            db.Cards.Remove(clientCard);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

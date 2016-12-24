@@ -155,8 +155,10 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\CardsController.cs" />
+    <Compile Include="Controllers\DiseasesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
+    <Compile Include="Controllers\SymptomsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -167,6 +169,10 @@
     <Compile Include="Migrations\201612232058411_NewModels.cs" />
     <Compile Include="Migrations\201612232058411_NewModels.Designer.cs">
       <DependentUpon>201612232058411_NewModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612240812042_NewEntities.cs" />
+    <Compile Include="Migrations\201612240812042_NewEntities.Designer.cs">
+      <DependentUpon>201612240812042_NewEntities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ClientCard.cs" />
@@ -220,11 +226,26 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Cards\Index.cshtml" />
+    <Content Include="Views\Symptoms\Create.cshtml" />
+    <Content Include="Views\Symptoms\Delete.cshtml" />
+    <Content Include="Views\Symptoms\Details.cshtml" />
+    <Content Include="Views\Symptoms\Edit.cshtml" />
+    <Content Include="Views\Symptoms\Index.cshtml" />
+    <Content Include="Views\Diseases\Create.cshtml" />
+    <Content Include="Views\Diseases\Delete.cshtml" />
+    <Content Include="Views\Diseases\Details.cshtml" />
+    <Content Include="Views\Diseases\Edit.cshtml" />
+    <Content Include="Views\Diseases\Index.cshtml" />
     <Content Include="Views\Cards\Create.cshtml" />
-    <Content Include="Views\Schedule\Index.cshtml" />
-    <Content Include="Views\Schedule\Create.cshtml" />
+    <Content Include="Views\Cards\Delete.cshtml" />
     <Content Include="Views\Cards\Details.cshtml" />
+    <Content Include="Views\Cards\Edit.cshtml" />
+    <Content Include="Views\Cards\Index.cshtml" />
+    <Content Include="Views\Schedule\Create.cshtml" />
+    <Content Include="Views\Schedule\Delete.cshtml" />
+    <Content Include="Views\Schedule\Details.cshtml" />
+    <Content Include="Views\Schedule\Edit.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -240,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612232058411_NewModels.resx">
       <DependentUpon>201612232058411_NewModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612240812042_NewEntities.resx">
+      <DependentUpon>201612240812042_NewEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

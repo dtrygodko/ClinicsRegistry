@@ -10,118 +10,109 @@ using ClinicsRegistry.Models;
 
 namespace ClinicsRegistry.Controllers
 {
-    public class ScheduleController : Controller
+    public class DiseasesController : Controller
     {
         private RegistryDBContext db;
 
-        public ScheduleController(RegistryDBContext context)
+        public DiseasesController(RegistryDBContext context)
         {
             db = context;
         }
 
-        // GET: Schedule
+        // GET: Diseases
         public ActionResult Index()
         {
-            return View(from i in db.Visits
-                        join c in db.Cards
-                            on i.Client.Id equals c.Id
-                        select new ScheduleItemViewModel
-                        {
-                            Id = i.Id,
-                            StartDate = i.StartDate,
-                            EndDate = i.EndDate,
-                            Patient = string.Concat(c.Name, " ", c.Surname)
-                        });
+            return View(db.Diseases.ToList());
         }
 
-        // GET: Schedule/Details/5
+        // GET: Diseases/Details/5
         public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ScheduleItem scheduleItem = db.Visits.Find(id);
-            if (scheduleItem == null)
+            Disease disease = db.Diseases.Find(id);
+            if (disease == null)
             {
                 return HttpNotFound();
             }
-            return View(scheduleItem);
+            return View(disease);
         }
 
-        // GET: Schedule/Create
+        // GET: Diseases/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Schedule/Create
+        // POST: Diseases/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StartDate,EndDate")] ScheduleItem scheduleItem)
+        public ActionResult Create([Bind(Include = "Id,Name,Description")] Disease disease)
         {
             if (ModelState.IsValid)
             {
-                scheduleItem.Id = Guid.NewGuid();
-                db.Visits.Add(scheduleItem);
+                disease.Id = Guid.NewGuid();
+                db.Diseases.Add(disease);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(scheduleItem);
+            return View(disease);
         }
 
-        // GET: Schedule/Edit/5
+        // GET: Diseases/Edit/5
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ScheduleItem scheduleItem = db.Visits.Find(id);
-            if (scheduleItem == null)
+            Disease disease = db.Diseases.Find(id);
+            if (disease == null)
             {
                 return HttpNotFound();
             }
-            return View(scheduleItem);
+            return View(disease);
         }
 
-        // POST: Schedule/Edit/5
+        // POST: Diseases/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,StartDate,EndDate")] ScheduleItem scheduleItem)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description")] Disease disease)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(scheduleItem).State = EntityState.Modified;
+                db.Entry(disease).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(scheduleItem);
+            return View(disease);
         }
 
-        // GET: Schedule/Delete/5
+        // GET: Diseases/Delete/5
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ScheduleItem scheduleItem = db.Visits.Find(id);
-            if (scheduleItem == null)
+            Disease disease = db.Diseases.Find(id);
+            if (disease == null)
             {
                 return HttpNotFound();
             }
-            return View(scheduleItem);
+            return View(disease);
         }
 
-        // POST: Schedule/Delete/5
+        // POST: Diseases/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            ScheduleItem scheduleItem = db.Visits.Find(id);
-            db.Visits.Remove(scheduleItem);
+            Disease disease = db.Diseases.Find(id);
+            db.Diseases.Remove(disease);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

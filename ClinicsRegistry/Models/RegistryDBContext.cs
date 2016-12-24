@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace ClinicsRegistry.Models
 {
@@ -10,5 +6,7 @@ namespace ClinicsRegistry.Models
     {
         public DbSet<ScheduleItem> Visits { get; set; }
         public DbSet<ClientCard> Cards { get; set; }
+        public DbSet<Disease> Diseases { get; set; }
+        public DbSet<Symptom> Symptoms { get; set; }
     }
 }
