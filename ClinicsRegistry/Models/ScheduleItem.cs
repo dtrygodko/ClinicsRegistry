@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClinicsRegistry.Models
 {
@@ -23,10 +26,20 @@ namespace ClinicsRegistry.Models
         public Guid Id { get; set; }
 
         [DisplayName("Start date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd hh:mm}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
 
         [DisplayName("End date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd hh:mm}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
+
+        public ClientCard Client { get; set; }
+
+        public List<SelectListItem> Patients { get; set; }
+
+        public Disease Diagnosis { get; set; }
+
+        public List<SelectListItem> Diagnoses { get; set; }
 
         public string Patient { get; set; }
     }

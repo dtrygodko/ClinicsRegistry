@@ -1,4 +1,4 @@
-﻿@model ClinicsRegistry.Models.ScheduleItem
+﻿@model ClinicsRegistry.Models.ScheduleItemViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -34,19 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Client, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @{
-                    List<SelectListItem> clients = new List<SelectListItem>();
-                    using (var context = new RegistryDBContext())
-                    {
-                        clients = (from c in context.Cards
-                                   select new SelectListItem
-                                   {
-                                       Value = c.Id.ToString(),
-                                       Text = string.Concat(c.Name, " ", c.Surname)
-                                   }).ToList();
-                    }
-                }
-                @Html.DropDownListFor(model => model.Client, clients, "Select client", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Client.Id, Model.Patients, "Select client", new { htmlAttributes = new { @class = "form-control" } })
             </div>
         </div>
 

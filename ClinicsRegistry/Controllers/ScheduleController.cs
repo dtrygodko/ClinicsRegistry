@@ -52,23 +52,34 @@ namespace ClinicsRegistry.Controllers
         // GET: Schedule/Create
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new ScheduleItemViewModel();
+            viewModel.Patients = (from c in db.Cards
+                                            select new SelectListItem
+                                            {
+                                                Value = c.Id.ToString(),
+                                                Text = string.Concat(c.Name, " ", c.Surname)
+                                            }).ToList();
+            return View(viewModel);
         }
 
         // POST: Schedule/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StartDate,EndDate")] ScheduleItem scheduleItem)
+        public ActionResult Create([Bind(Include = "Id,StartDate,EndDate,Client")] ScheduleItemViewModel itemViewModel)
         {
             if (ModelState.IsValid)
             {
-                scheduleItem.Id = Guid.NewGuid();
-                db.Visits.Add(scheduleItem);
+                ScheduleItem item = new ScheduleItem();
+                item.Id = Guid.NewGuid();
+                item.StartDate = itemViewModel.StartDate;
+                item.EndDate = itemViewModel.EndDate;
+                item.Client = db.Cards.Find(itemViewModel.Client.Id) as ClientCard;
+                db.Visits.Add(item);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(scheduleItem);
+            return View(itemViewModel);
         }
 
         // GET: Schedule/Edit/5
@@ -83,21 +94,42 @@ namespace ClinicsRegistry.Controllers
             {
                 return HttpNotFound();
             }
-            return View(scheduleItem);
+            else
+            {
+                ScheduleItemViewModel viewModel = new ScheduleItemViewModel
+                {
+                    Id = scheduleItem.Id,
+                    StartDate = scheduleItem.StartDate,
+                    EndDate = scheduleItem.EndDate,
+                    Client = scheduleItem.Client
+                };
+                viewModel.Diagnoses = (from c in db.Diseases
+                                       select new SelectListItem
+                                       {
+                                           Value = c.Id.ToString(),
+                                           Text = c.Name
+                                       }).ToList();
+
+                return View(viewModel);
+            }
         }
 
         // POST: Schedule/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,StartDate,EndDate")] ScheduleItem scheduleItem)
+        public ActionResult Edit([Bind(Include = "Id,StartDate,EndDate,Diagnosis")] ScheduleItemViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(scheduleItem).State = EntityState.Modified;
+                ScheduleItem item = db.Visits.Find(viewModel.Id);
+                item.StartDate = viewModel.StartDate;
+                item.EndDate = viewModel.EndDate;
+                item.Diagnosis = db.Diseases.Find(viewModel.Diagnosis.Id);
+                db.Entry(item).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(scheduleItem);
+            return View(viewModel);
         }
 
         // GET: Schedule/Delete/5
