@@ -32,6 +32,8 @@ namespace ClinicsRegistry.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            var diagnoses = (from d in db.Diseases
+                          select d).ToList();
             ClientCard clientCard = db.Cards.Find(id);
             if (clientCard == null)
             {

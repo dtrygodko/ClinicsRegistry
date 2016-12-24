@@ -30,7 +30,8 @@ namespace ClinicsRegistry.Controllers
                             Id = i.Id,
                             StartDate = i.StartDate,
                             EndDate = i.EndDate,
-                            Patient = string.Concat(c.Name, " ", c.Surname)
+                            Patient = string.Concat(c.Name, " ", c.Surname),
+                            Diagnosis = i.Diagnosis
                         });
         }
 
@@ -125,7 +126,7 @@ namespace ClinicsRegistry.Controllers
                 item.StartDate = viewModel.StartDate;
                 item.EndDate = viewModel.EndDate;
                 item.Diagnosis = db.Diseases.Find(viewModel.Diagnosis.Id);
-                db.Entry(item).State = EntityState.Modified;
+                //db.Entry(item).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
