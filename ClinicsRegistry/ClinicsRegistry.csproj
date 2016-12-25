@@ -156,6 +156,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\CardsController.cs" />
     <Compile Include="Controllers\DiseasesController.cs" />
+    <Compile Include="Controllers\DiseasesSymptomsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SymptomsController.cs" />
@@ -174,9 +175,14 @@
     <Compile Include="Migrations\201612240812042_NewEntities.Designer.cs">
       <DependentUpon>201612240812042_NewEntities.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612251004551_VisitPrice.cs" />
+    <Compile Include="Migrations\201612251004551_VisitPrice.Designer.cs">
+      <DependentUpon>201612251004551_VisitPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ClientCard.cs" />
     <Compile Include="Models\Disease.cs" />
+    <Compile Include="Models\DiseasesSymptomsViewModel.cs" />
     <Compile Include="Models\RegistryDBContext.cs" />
     <Compile Include="Models\ScheduleItem.cs" />
     <Compile Include="Models\Symptom.cs" />
@@ -243,9 +249,10 @@
     <Content Include="Views\Cards\Index.cshtml" />
     <Content Include="Views\Schedule\Create.cshtml" />
     <Content Include="Views\Schedule\Delete.cshtml" />
-    <Content Include="Views\Schedule\Details.cshtml" />
     <Content Include="Views\Schedule\Edit.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\DiseasesSymptoms\Create.cshtml" />
+    <Content Include="Views\DiseasesSymptoms\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -264,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612240812042_NewEntities.resx">
       <DependentUpon>201612240812042_NewEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612251004551_VisitPrice.resx">
+      <DependentUpon>201612251004551_VisitPrice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

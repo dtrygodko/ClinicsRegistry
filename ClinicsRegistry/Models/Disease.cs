@@ -11,8 +11,8 @@ namespace ClinicsRegistry.Models
 
         public string Description { get; set; }
 
-        public List<Symptom> Symptoms { get; set; } = new List<Symptom>();
+        public virtual List<Symptom> Symptoms { get; set; } = new List<Symptom>();
 
-        public List<ScheduleItem> Visits { get; set; } = new List<ScheduleItem>();
+        public virtual List<ScheduleItem> Visits { get; set; } = new List<ScheduleItem>();
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ClinicsRegistry.Models;
 
@@ -14,12 +11,20 @@ namespace ClinicsRegistry.Controllers
     {
         private RegistryDBContext db;
 
+        /// <summary>
+        /// Constructor of controller
+        /// </summary>
+        /// <param name="context">Db context</param>
         public ScheduleController(RegistryDBContext context)
         {
             db = context;
         }
 
         // GET: Schedule
+        /// <summary>
+        /// Returns schedule.
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Index()
         {
             return View(from i in db.Visits
@@ -31,26 +36,16 @@ namespace ClinicsRegistry.Controllers
                             StartDate = i.StartDate,
                             EndDate = i.EndDate,
                             Patient = string.Concat(c.Name, " ", c.Surname),
-                            Diagnosis = i.Diagnosis
+                            Diagnosis = i.Diagnosis,
+                            Price = i.Price
                         });
         }
 
-        // GET: Schedule/Details/5
-        public ActionResult Details(Guid? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ScheduleItem scheduleItem = db.Visits.Find(id);
-            if (scheduleItem == null)
-            {
-                return HttpNotFound();
-            }
-            return View(scheduleItem);
-        }
-
         // GET: Schedule/Create
+        /// <summary>
+        /// Opens "Create" view.
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Create()
         {
             var viewModel = new ScheduleItemViewModel();
@@ -64,6 +59,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // POST: Schedule/Create
+        /// <summary>
+        /// Converts ViewModel into Model and saves new ScheduleItem.
+        /// </summary>
+        /// <param name="itemViewModel">ViewModel of ScheduleItem</param>
+        /// <returns>Index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,StartDate,EndDate,Client")] ScheduleItemViewModel itemViewModel)
@@ -75,6 +75,7 @@ namespace ClinicsRegistry.Controllers
                 item.StartDate = itemViewModel.StartDate;
                 item.EndDate = itemViewModel.EndDate;
                 item.Client = db.Cards.Find(itemViewModel.Client.Id) as ClientCard;
+                item.SetPrice();
                 db.Visits.Add(item);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -84,6 +85,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // GET: Schedule/Edit/5
+        /// <summary>
+        /// Opens "Edit" view.
+        /// </summary>
+        /// <param name="id">Id of ScheduleItem</param>
+        /// <returns>View</returns>
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -116,17 +122,22 @@ namespace ClinicsRegistry.Controllers
         }
 
         // POST: Schedule/Edit/5
+        /// <summary>
+        /// Converts ViewModel into Model and saves edited ScheduleItem.
+        /// </summary>
+        /// <param name="viewModel">ViewModel of ScheduleItem</param>
+        /// <returns>Index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,StartDate,EndDate,Diagnosis")] ScheduleItemViewModel viewModel)
+        public ActionResult Edit([Bind(Include = "Id,StartDate,EndDate,Diagnosis,Client")] ScheduleItemViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                ScheduleItem item = db.Visits.Find(viewModel.Id);
+                ScheduleItem item = db.Visits.Include("Client").Where(v => v.Id == viewModel.Id).Single();
                 item.StartDate = viewModel.StartDate;
                 item.EndDate = viewModel.EndDate;
                 item.Diagnosis = db.Diseases.Find(viewModel.Diagnosis.Id);
-                //db.Entry(item).State = EntityState.Modified;
+                item.SetPrice();
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -134,6 +145,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // GET: Schedule/Delete/5
+        /// <summary>
+        /// Opens "Delete" view
+        /// </summary>
+        /// <param name="id">Id of ScheduleItem</param>
+        /// <returns>View</returns>
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -149,6 +165,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // POST: Schedule/Delete/5
+        /// <summary>
+        /// Detetes ScheduleItem
+        /// </summary>
+        /// <param name="id">Id of ScheduleItem</param>
+        /// <returns>Index view</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)

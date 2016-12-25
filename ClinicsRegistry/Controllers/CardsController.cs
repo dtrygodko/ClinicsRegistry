@@ -14,18 +14,31 @@ namespace ClinicsRegistry.Controllers
     {
         private RegistryDBContext db;
 
+        /// <summary>
+        /// Constructor of controller
+        /// </summary>
+        /// <param name="context">Db context</param>
         public CardsController(RegistryDBContext context)
         {
             db = context;
         }
 
         // GET: Cards
+        /// <summary>
+        /// Returns cards.
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Index()
         {
             return View(db.Cards.ToList());
         }
 
         // GET: Cards/Details/5
+        /// <summary>
+        /// Opens "Details" view.
+        /// </summary>
+        /// <param name="id">Id of ClientCard</param>
+        /// <returns>View</returns>
         public ActionResult Details(Guid? id)
         {
             if (id == null)
@@ -43,12 +56,21 @@ namespace ClinicsRegistry.Controllers
         }
 
         // GET: Cards/Create
+        /// <summary>
+        /// Opens "Create" view.
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Cards/Create
+        /// <summary>
+        /// Saves new ClientCard.
+        /// </summary>
+        /// <param name="clientCard">New card</param>
+        /// <returns>Index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Surname,BirthDate,IsEmployee")] ClientCard clientCard)
@@ -65,6 +87,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // GET: Cards/Edit/5
+        /// <summary>
+        /// Opens "Edit" view.
+        /// </summary>
+        /// <param name="id">Id of ClientCard</param>
+        /// <returns>View</returns>
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -80,6 +107,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // POST: Cards/Edit/5
+        /// <summary>
+        /// Updates ClientCard.
+        /// </summary>
+        /// <param name="clientCard">Card</param>
+        /// <returns>Index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Surname,BirthDate,IsEmployee")] ClientCard clientCard)
@@ -94,6 +126,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // GET: Cards/Delete/5
+        /// <summary>
+        /// Opens "Delete" view
+        /// </summary>
+        /// <param name="id">Id of ClientCard</param>
+        /// <returns>View</returns>
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -109,6 +146,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // POST: Cards/Delete/5
+        /// <summary>
+        /// Detetes ClientCard
+        /// </summary>
+        /// <param name="id">Id of ClientCard</param>
+        /// <returns>Index view</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)

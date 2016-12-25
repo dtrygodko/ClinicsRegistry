@@ -26,6 +26,17 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Symptoms)
+        </dt>
+
+        <dd>
+            @foreach (var symptom in Model.Symptoms)
+            {
+                <span>@Html.DisplayFor(v => symptom.Name)</span><br/>
+            }
+        </dd>
+
     </dl>
 </div>
 <p>

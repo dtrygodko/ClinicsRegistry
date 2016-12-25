@@ -14,18 +14,31 @@ namespace ClinicsRegistry.Controllers
     {
         private RegistryDBContext db;
 
+        /// <summary>
+        /// Constructor of controller
+        /// </summary>
+        /// <param name="context">Db context</param>
         public SymptomsController(RegistryDBContext context)
         {
             db = context;
         }
 
         // GET: Symptoms
+        /// <summary>
+        /// Returns symptoms.
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Index()
         {
             return View(db.Symptoms.ToList());
         }
 
         // GET: Symptoms/Details/5
+        /// <summary>
+        /// Opens "Details" view.
+        /// </summary>
+        /// <param name="id">Id of Symptom</param>
+        /// <returns>View</returns>
         public ActionResult Details(Guid? id)
         {
             if (id == null)
@@ -41,12 +54,21 @@ namespace ClinicsRegistry.Controllers
         }
 
         // GET: Symptoms/Create
+        /// <summary>
+        /// Opens "Create" view.
+        /// </summary>
+        /// <returns>View</returns>
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Symptoms/Create
+        /// <summary>
+        /// Creates new symptom.
+        /// </summary>
+        /// <param name="symptom">Symptom</param>
+        /// <returns>Index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name")] Symptom symptom)
@@ -63,6 +85,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // GET: Symptoms/Edit/5
+        /// <summary>
+        /// Opens "Edit" view.
+        /// </summary>
+        /// <param name="id">Id of Symptom</param>
+        /// <returns>View</returns>
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -78,6 +105,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // POST: Symptoms/Edit/5
+        /// <summary>
+        /// Updates Symptom.
+        /// </summary>
+        /// <param name="symptom">Symptom</param>
+        /// <returns>Index view</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name")] Symptom symptom)
@@ -92,6 +124,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // GET: Symptoms/Delete/5
+        /// <summary>
+        /// Opens "Delete" view
+        /// </summary>
+        /// <param name="id">Id of Symptom</param>
+        /// <returns>View</returns>
         public ActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -107,6 +144,11 @@ namespace ClinicsRegistry.Controllers
         }
 
         // POST: Symptoms/Delete/5
+        /// <summary>
+        /// Detetes Symptom
+        /// </summary>
+        /// <param name="id">Id of Symptom</param>
+        /// <returns>Index view</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)

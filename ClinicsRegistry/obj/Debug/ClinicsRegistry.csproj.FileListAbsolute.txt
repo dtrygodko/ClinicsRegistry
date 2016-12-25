@@ -68,3 +68,4 @@ D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\roslyn\JTB0182.pri
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\bin\roslyn\JTB0182.visual
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\obj\Debug\ClinicsRegistry.Migrations.NewModels.resources
 D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\obj\Debug\ClinicsRegistry.Migrations.NewEntities.resources
+D:\Учёба\Лабы\C#\ClinicsRegistry\ClinicsRegistry\obj\Debug\ClinicsRegistry.Migrations.VisitPrice.resources

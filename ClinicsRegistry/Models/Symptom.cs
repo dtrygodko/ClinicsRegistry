@@ -7,6 +7,6 @@ namespace ClinicsRegistry.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Disease> Diseases { get; set; } = new List<Disease>();
+        public virtual List<Disease> Diseases { get; set; } = new List<Disease>();
     }
 }

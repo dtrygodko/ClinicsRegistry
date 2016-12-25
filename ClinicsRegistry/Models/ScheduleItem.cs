@@ -19,6 +19,21 @@ namespace ClinicsRegistry.Models
         public ClientCard Client { get; set; }
 
         public Disease Diagnosis { get; set; }
+
+        public int Price { get; private set; }
+
+        public void SetPrice()
+        {
+            if (Client.IsEmployee)
+            {
+                Price = 0;
+            }
+            else
+            {
+                TimeSpan span = EndDate - StartDate;
+                Price = (int)span.TotalMinutes;
+            }
+        }
     }
 
     public class ScheduleItemViewModel
@@ -42,5 +57,7 @@ namespace ClinicsRegistry.Models
         public List<SelectListItem> Diagnoses { get; set; }
 
         public string Patient { get; set; }
+
+        public int Price { get; set; }
     }
 }

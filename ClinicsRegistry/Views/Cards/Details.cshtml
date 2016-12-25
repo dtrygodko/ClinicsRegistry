@@ -49,7 +49,7 @@
         <dd>
             @foreach (var visit in Model.Visits)
             {
-                <span>@Html.DisplayFor(v => visit.StartDate) - @Html.DisplayFor(v => visit.EndDate): @Html.DisplayFor(v => visit.Diagnosis.Name)</span>
+                <span>@Html.DisplayFor(v => visit.StartDate) - @Html.DisplayFor(v => visit.EndDate): @Html.DisplayFor(v => visit.Diagnosis.Name)</span><br/>
             }
         </dd>
 

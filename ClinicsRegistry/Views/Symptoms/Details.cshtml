@@ -18,6 +18,17 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Diseases)
+        </dt>
+
+        <dd>
+            @foreach (var disease in Model.Diseases)
+            {
+                <span>@Html.DisplayFor(v => disease.Name)</span><br/>
+            }
+        </dd>
+
     </dl>
 </div>
 <p>
